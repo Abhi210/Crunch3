@@ -1,0 +1,22 @@
+# C5 — inference dependencies
+#
+# The website runs ONLY:  python main.py --data_dir data --model_dir resources
+# It does not run the scripts/ pipeline, so all weights are pre-baked into resources/.
+# main.py imports: numpy, pandas, scipy, torch, tqdm  (+ pyarrow for parquet I/O).
+# Everything else it uses (argparse, json, tempfile, warnings, pathlib) is stdlib.
+
+## third-party
+numpy
+pandas
+scipy
+torch
+tqdm
+pyarrow              # required: read predict_perturbations_3.parquet / write prediction.parquet
+crunch-cli  # alias of crunch — platform harness (main.py itself does not import crunch)
+
+## standard (no install needed)
+#argparse
+#json
+#tempfile
+#warnings
+#pathlib
